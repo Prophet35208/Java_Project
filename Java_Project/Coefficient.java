@@ -1,4 +1,16 @@
 public class Coefficient {
+    public class Coefficient_Helper{
+        static Coefficient current_coefficient;
+        static public void Change_Current__Coefficient(Coefficient coefficient){
+            current_coefficient=coefficient;
+        }
+        static public int Get_Soft_Coef_From_Current_Coefficient(){
+            return current_coefficient.soft_coefficient;
+        }
+        static public int Get_Hard_Coef_From_Current_Coefficient(){
+            return current_coefficient.hard_coefficient;
+        }
+    }
 	public int hard_coefficient;
 	public int soft_coefficient;
 

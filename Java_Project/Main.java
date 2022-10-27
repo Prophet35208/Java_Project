@@ -1,6 +1,29 @@
 import java.util.Scanner;
 public class Main {
      public static void main(String[] args){
+        Player player1;
+        player1=new Player(1);
+        Player player2;
+        player2=new Player(1);
+        System.out.printf("Кол-во игроков сейчас: %d\n\n",Player.num_all_players);
+        // Создадим массив карт
+        Card [] cards=new Card[10];
+        for (int i=0; i<10; i++){
+            cards[i]=new Card(i+1);
+        }
+        for (int i=0; i<10; i++){
+            System.out.printf("%d  ",cards[i].Get_Cost());
+        }
+        System.out.printf("\n\n");
+        // Можем создать двумерный массив, копирующий первый, но лн будет хранить только цены карт, причём с дополнительной копией
+        int [][] arr_cost=new int[10][2];
+        for (int i=0; i<10; i++){
+            for (int j=0; j<2; j++){
+                arr_cost[i][j]=cards[i].Get_Cost();
+                System.out.printf("%d  ",arr_cost[i][j]);
+            }
+            System.out.printf("\n");
+        }
         
 }}
 /*Scanner in = new Scanner(System.in); 
