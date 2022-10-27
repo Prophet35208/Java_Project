@@ -24,7 +24,26 @@ public class Main {
             }
             System.out.printf("\n");
         }
-        
+        // Создадим  два коеффициента
+        Coefficient coef1=new Coefficient(1,0);
+        Coefficient coef2=new Coefficient(3,5);
+        // Воспользуемся вспомогательной функцией, чтобы задать активный коэффициент
+        Coefficient.Coefficient_Helper helper=coef1.new Coefficient_Helper();
+        helper.current_coefficient=coef2;
+        // Можем получить данные активного коэффцициента
+        System.out.printf("Hard coefficient= %d, soft coefficient= %d.\n",helper.current_coefficient.Get_Hard_Coefficient(),helper.current_coefficient.Get_Soft_Coefficient());
+        // Обработка строк
+        String str1="Привет, сколько тебе лет?\n";
+        System.out.printf("%s",str1);
+        Scanner scanner = new Scanner(System.in);
+        String str2 = scanner.nextLine();
+        String str3,str4;
+        System.out.printf("Я не умею считать, но знаю, что у тебя в возрасте %d цифр\n", str2.length());
+        str3="А мне";
+        str4=" 12";
+        System.out.printf("%s\n",str3.concat(str4));
+
+
 }}
 /*Scanner in = new Scanner(System.in); 
     // Создадим колоду вместимостью 5 карт
