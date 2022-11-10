@@ -1,49 +1,50 @@
 import java.util.Scanner;
 public class Main {
      public static void main(String[] args){
-        Player player1;
-        player1=new Player(1);
-        Player player2;
-        player2=new Player(1);
-        System.out.printf("Кол-во игроков сейчас: %d\n\n",Player.num_all_players);
-        // Создадим массив карт
-        Card [] cards=new Card[10];
-        for (int i=0; i<10; i++){
-            cards[i]=new Card(i+1);
-        }
-        for (int i=0; i<10; i++){
-            System.out.printf("%d  ",cards[i].Get_Cost());
-        }
-        System.out.printf("\n\n");
-        // Можем создать двумерный массив, копирующий первый, но лн будет хранить только цены карт, причём с дополнительной копией
-        int [][] arr_cost=new int[10][2];
-        for (int i=0; i<10; i++){
-            for (int j=0; j<2; j++){
-                arr_cost[i][j]=cards[i].Get_Cost();
-                System.out.printf("%d  ",arr_cost[i][j]);
-            }
-            System.out.printf("\n");
-        }
-        // Создадим  два коеффициента
-        Coefficient coef1=new Coefficient(1,0);
-        Coefficient coef2=new Coefficient(3,5);
-        // Воспользуемся вспомогательной функцией, чтобы задать активный коэффициент
-        Coefficient.Coefficient_Helper helper=coef1.new Coefficient_Helper();
-        helper.current_coefficient=coef2;
-        // Можем получить данные активного коэффцициента
-        System.out.printf("Hard coefficient= %d, soft coefficient= %d.\n",helper.current_coefficient.Get_Hard_Coefficient(),helper.current_coefficient.Get_Soft_Coefficient());
-        // Обработка строк
-        String str1="Привет, сколько тебе лет?\n";
-        System.out.printf("%s",str1);
-        Scanner scanner = new Scanner(System.in);
-        String str2 = scanner.nextLine();
-        String str3,str4;
-        System.out.printf("Я не умею считать, но знаю, что у тебя в возрасте %d цифр\n", str2.length());
-        str3="А мне";
-        str4=" 12";
-        System.out.printf("%s\n",str3.concat(str4));
+        Card card_1=new Card(3);
+    System.out.printf("Стоимость карты: %d", card_1.Get_Cost());
+    System.out.printf("\n");
+    System.out.printf("\n");
+    Card card_2=new Card(0);
+    System.out.printf("Стоимость карты: %d", card_2.Get_Cost());
+    System.out.printf("\n");
+    System.out.printf("\n");
+    Card card_3=new Card(20);
+    System.out.printf("Стоимость карты: %d", card_3.Get_Cost());
+    System.out.printf("\n");
+    System.out.printf("\n");
+    System.out.printf("\n");
+    // Контроль на set-тером стоимости объекта 
+    card_1.Set_Cost(5);
+    System.out.printf("Стоимость карты: %d", card_1.Get_Cost());
+    System.out.printf("\n");
+    System.out.printf("\n");
+    card_2.Set_Cost(-4);
+    System.out.printf("Стоимость карты: %d", card_2.Get_Cost());
+    System.out.printf("\n");
+    System.out.printf("\n");
+    card_3.Set_Cost(100);
+    System.out.printf("Стоимость карты: %d", card_3.Get_Cost());
+    System.out.printf("\n");
 
-
+    // Создание массивов, заполнение первого, второй и третий оставлен заполненный конструктором по умолчанию
+    Card cards_mas_1[][]=new Card[5][4];
+    for (int  i=0;i<5;i++)
+        for (int j = 0; j < 4; j++)
+        {
+            cards_mas_1[i][j].Set_Cost(j+1);
+        }
+    // Заполнение массива карт 3 ценой карт первого массива + единица к цене каждой карты. Копируется вторая строка первого массива
+    Card cards_mas_2[]=new Card[4];
+    Card cards_mas_3[]=new Card[4];
+    for (int i = 0; i < 4; i++)
+        cards_mas_3[i].Set_Cost(cards_mas_1[2][i].Get_Cost() + cards_mas_3[i].Get_Cost());
+    // Вывод
+    System.out.printf("\n");
+    for (int i = 0; i < 4; i++)
+    {
+        System.out.printf("%d\n", cards_mas_3[i].Get_Cost());
+    }
 }}
 /*Scanner in = new Scanner(System.in); 
     // Создадим колоду вместимостью 5 карт
