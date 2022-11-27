@@ -1,49 +1,25 @@
+import java.util.*;
 import java.util.Scanner;
 public class Main {
      public static void main(String[] args){
-        Player player1;
-        player1=new Player(1);
-        Player player2;
-        player2=new Player(1);
-        System.out.printf("Кол-во игроков сейчас: %d\n\n",Player.num_all_players);
-        // Создадим массив карт
-        Card [] cards=new Card[10];
-        for (int i=0; i<10; i++){
-            cards[i]=new Card(i+1);
-        }
-        for (int i=0; i<10; i++){
-            System.out.printf("%d  ",cards[i].Get_Cost());
-        }
-        System.out.printf("\n\n");
-        // Можем создать двумерный массив, копирующий первый, но лн будет хранить только цены карт, причём с дополнительной копией
-        int [][] arr_cost=new int[10][2];
-        for (int i=0; i<10; i++){
-            for (int j=0; j<2; j++){
-                arr_cost[i][j]=cards[i].Get_Cost();
-                System.out.printf("%d  ",arr_cost[i][j]);
-            }
-            System.out.printf("\n");
-        }
-        // Создадим  два коеффициента
-        Coefficient coef1=new Coefficient(1,0);
-        Coefficient coef2=new Coefficient(3,5);
-        // Воспользуемся вспомогательной функцией, чтобы задать активный коэффициент
-        Coefficient.Coefficient_Helper helper=coef1.new Coefficient_Helper();
-        helper.current_coefficient=coef2;
-        // Можем получить данные активного коэффцициента
-        System.out.printf("Hard coefficient= %d, soft coefficient= %d.\n",helper.current_coefficient.Get_Hard_Coefficient(),helper.current_coefficient.Get_Soft_Coefficient());
-        // Обработка строк
-        String str1="Привет, сколько тебе лет?\n";
-        System.out.printf("%s",str1);
-        Scanner scanner = new Scanner(System.in);
-        String str2 = scanner.nextLine();
-        String str3,str4;
-        System.out.printf("Я не умею считать, но знаю, что у тебя в возрасте %d цифр\n", str2.length());
-        str3="А мне";
-        str4=" 12";
-        System.out.printf("%s\n",str3.concat(str4));
+        int a;
+        ArrayList  v_cards=new ArrayList();
+        Card card1=new Card(3);
+        Card card2=new Card(5);
+        Card card3= new Card(2);
+        Card_Unit card4 = new Card_Unit(4, 14);
+        Card_Unit card5 = new Card_Unit(5, 77);
+        Card_Unit card6 = new Card_Unit(6, 1);
+        
+        v_cards.add(card1);
+        v_cards.add(card2);
+        v_cards.add(card3);
+        v_cards.add(card4);
+        v_cards.add(card5);
+        v_cards.add(card6);
 
-
+        // Сортировка по цене (на увелечение)
+        v_cards.sort(new CustomComparator());
 }}
 /*Scanner in = new Scanner(System.in); 
     // Создадим колоду вместимостью 5 карт

@@ -1,6 +1,6 @@
 public class Card 
 { 
-	private int cost;
+	protected int cost;
 	public  Card(int cost){
 		this.cost=cost;
 	};
